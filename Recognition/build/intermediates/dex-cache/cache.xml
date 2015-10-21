@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\downtown\Recognition\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\classes-59b9875ef277bb558ec901b7080bfafb85b5329b.jar" />
+    </item>
+    <item
+        jar="C:\downtown\Recognition\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\classes-1c5e8e004d78cc3c3059074fafbc36ab4c167994.jar" />
+    </item>
+    <item
+        jar="C:\downtown\Recognition\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-4770c50eb10ac57623c255122456309a6f6516bb.jar" />
+    </item>
+    <item
+        jar="C:\Users\ショウ\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-355d2de44db8c83780f416c90e28d4b530f8350c.jar" />
+    </item>
+    <item
+        jar="C:\downtown\Recognition\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\classes-c45c445e9716792021907131b2b4a0299c402151.jar" />
+    </item>
+
+</items>
