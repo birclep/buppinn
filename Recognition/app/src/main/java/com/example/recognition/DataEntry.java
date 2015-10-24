@@ -24,7 +24,7 @@ public class DataEntry extends Activity {
         window.setAttributes(params);
         */
         setContentView(R.layout.activity_main);
-        Context context=getApplicationContext();
+        Context context=this;
         CameraPreview cameraPreview=new CameraPreview(this);
         this.setContentView(cameraPreview, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,

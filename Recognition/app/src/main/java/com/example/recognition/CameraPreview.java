@@ -34,13 +34,16 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        EditText nametext = new EditText(context);
+       /* EditText nametext = new EditText(context);
         new AlertDialog.Builder(context).setTitle("name").setIcon(
                 android.R.drawable.ic_dialog_info).setView(
                 nametext).setPositiveButton("確認", null)
                 .setNegativeButton("取消", null).show();
+
         name=nametext.getText().toString();
         Log.d(name,name);
+        */
+        inputTitleDialog();
         try {
             int openCameraType = Camera.CameraInfo.CAMERA_FACING_BACK;
             if (openCameraType <= Camera.getNumberOfCameras()) {
@@ -125,6 +128,23 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                     }
                 }
             };
+    private void inputTitleDialog() {
+
+        final EditText inputServer = new EditText(context);
+        inputServer.setFocusable(true);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("ddd").setView(inputServer).setNegativeButton(
+                "cancel", null);
+        builder.setPositiveButton("ok",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        name = inputServer.getText().toString();
+                    }
+                });
+        builder.show();
+    }
 
 }
 
