@@ -134,7 +134,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         inputServer.setFocusable(true);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("ddd").setView(inputServer).setNegativeButton(
+        builder.setTitle("object name").setView(inputServer).setNegativeButton(
                 "cancel", null);
         builder.setPositiveButton("ok",
                 new DialogInterface.OnClickListener() {

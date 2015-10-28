@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登録"
+        android:text="備品登録"
         android:id="@+id/DataEntry_Button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp" />
@@ -20,7 +20,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="貸出し"
+        android:text="備品貸出し"
         android:id="@+id/Recognition_Button"
         android:layout_below="@+id/DataEntry_Button"
         android:layout_centerHorizontal="true"
