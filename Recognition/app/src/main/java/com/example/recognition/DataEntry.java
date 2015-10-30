@@ -3,6 +3,7 @@ package com.example.recognition;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,11 +25,16 @@ public class DataEntry extends Activity {
         window.setAttributes(params);
         */
         setContentView(R.layout.activity_main);
-        Context context=this;
-        CameraPreview cameraPreview=new CameraPreview(this);
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+        Context context = this;
+        CameraPreview cameraPreview = new CameraPreview(this);
         this.setContentView(cameraPreview, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
+
 
 
     }

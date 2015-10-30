@@ -2,67 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\downtown\Recognition\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\classes-59b9875ef277bb558ec901b7080bfafb85b5329b.jar" />
-    </item>
-    <item
-        jar="C:\downtown\Recognition\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-4770c50eb10ac57623c255122456309a6f6516bb.jar" />
-    </item>
-    <item
-        jar="C:\gitproject\buppinn\Recognition\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="C:\gitproject\buppinn\Recognition\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-f611ab8cad83c0189021227f9339dedf7b2c43ca.jar" />
-    </item>
-    <item
-        jar="C:\Users\ショウ\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jar="C:\sdk\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-355d2de44db8c83780f416c90e28d4b530f8350c.jar" />
-    </item>
-    <item
-        jar="C:\downtown\Recognition\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\classes-1c5e8e004d78cc3c3059074fafbc36ab4c167994.jar" />
-    </item>
-    <item
-        jar="C:\gitproject\buppinn\Recognition\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="C:\gitproject\buppinn\Recognition\app\build\intermediates\pre-dexed\debug\classes-96ec24b95fedb124a8fe8754be5aa955685bad9c.jar" />
-    </item>
-    <item
-        jar="C:\gitproject\buppinn\Recognition\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="C:\gitproject\buppinn\Recognition\app\build\intermediates\pre-dexed\debug\classes-d5a8f7ba2af2650db66b1411215aaf16b33ef2c5.jar" />
-    </item>
-    <item
-        jar="C:\gitproject\buppinn\Recognition\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="C:\gitproject\buppinn\Recognition\app\build\intermediates\pre-dexed\debug\classes-f7473c80f956d48b9b3a7406be05387f57b7fcfd.jar" />
-    </item>
-    <item
-        jar="C:\downtown\Recognition\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="C:\downtown\Recognition\app\build\intermediates\pre-dexed\debug\classes-c45c445e9716792021907131b2b4a0299c402151.jar" />
+        <dex dex="C:\gitproject\buppinn\Recognition\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-d5566105000e480b8f5cb34f7041c441bdea18b9.jar" />
     </item>
 
 </items>
