@@ -1,0 +1,680 @@
+# Logfile created on 2015-10-28 15:32:42 +0900 by logger.rb/41954
+Connecting to database specified by database.yml
+  [1m[36m (35.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (71.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20140609033222)
+  [1m[35m (24.2ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login_id` varchar(16) NOT NULL, `nickname` varchar(40), `mail` varchar(40), `password_digest` varchar(255) NOT NULL, `delete_date` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (34.1ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_login_id` ON `users` (`login_id`)[0m
+  [1m[35m (33.3ms)[0m  CREATE UNIQUE INDEX `index_users_on_mail` ON `users` (`mail`)
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140609033222')[0m
+Migrating to CreateBooks (20140609035418)
+  [1m[35m (23.3ms)[0m  CREATE TABLE `books` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_code` varchar(13) NOT NULL, `group_id` int(11) NOT NULL, `shelf_id` int(11) NOT NULL, `delete_date` datetime, `state` tinyint(1) DEFAULT 0 NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (15.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140609035418')[0m
+Migrating to CreateBookCatalogs (20140609035437)
+  [1m[35m (24.7ms)[0m  CREATE TABLE `book_catalogs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_code` varchar(13) NOT NULL, `title` varchar(100) NOT NULL, `authors` varchar(100) NOT NULL, `publisher` varchar(40) NOT NULL, `publication_date` datetime NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (40.4ms)[0m  [1mCREATE INDEX `index_book_catalogs_on_book_code` ON `book_catalogs` (`book_code`)[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140609035437')
+Migrating to CreateGroups (20140609035440)
+  [1m[36m (30.2ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(40) NOT NULL, `delete_date` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140609035440')
+Migrating to CreateShelves (20140609035443)
+  [1m[36m (40.6ms)[0m  [1mCREATE TABLE `shelves` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `shelf_id` int(11) NOT NULL, `group_id` int(11) NOT NULL, `name` varchar(40) NOT NULL, `delete_date` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (70.8ms)[0m  ALTER TABLE `shelves` ADD CONSTRAINT `shelves_group_id_fk` FOREIGN KEY (`group_id`) REFERENCES `groups`(id)
+  [1m[36m (36.2ms)[0m  [1mCREATE UNIQUE INDEX `index_shelves_on_shelf_id_and_group_id` ON `shelves` (`shelf_id`, `group_id`)[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140609035443')
+Migrating to CreateManagers (20140609035539)
+  [1m[36m (25.4ms)[0m  [1mCREATE TABLE `managers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `group_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (70.0ms)[0m  ALTER TABLE `managers` ADD CONSTRAINT `managers_group_id_fk` FOREIGN KEY (`group_id`) REFERENCES `groups`(id)
+  [1m[36m (72.1ms)[0m  [1mALTER TABLE `managers` ADD CONSTRAINT `managers_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)[0m
+  [1m[35m (40.5ms)[0m  CREATE UNIQUE INDEX `index_managers_on_group_id_and_user_id` ON `managers` (`group_id`, `user_id`)
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140609035539')[0m
+Migrating to CreateMembers (20140609035543)
+  [1m[35m (25.9ms)[0m  CREATE TABLE `members` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `group_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (67.3ms)[0m  [1mALTER TABLE `members` ADD CONSTRAINT `members_group_id_fk` FOREIGN KEY (`group_id`) REFERENCES `groups`(id)[0m
+  [1m[35m (74.9ms)[0m  ALTER TABLE `members` ADD CONSTRAINT `members_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)
+  [1m[36m (43.1ms)[0m  [1mCREATE INDEX `index_members_on_group_id_and_user_id` ON `members` (`group_id`, `user_id`)[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140609035543')
+Migrating to CreateLendLogs (20140609044701)
+  [1m[36m (25.2ms)[0m  [1mCREATE TABLE `lend_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `lend_date` datetime NOT NULL, `return_date` datetime, `cancel_date` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1004.2ms)[0m  ALTER TABLE `lend_logs` ADD CONSTRAINT `lend_logs_book_id_fk` FOREIGN KEY (`book_id`) REFERENCES `books`(id)
+  [1m[36m (73.4ms)[0m  [1mALTER TABLE `lend_logs` ADD CONSTRAINT `lend_logs_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)[0m
+  [1m[35m (43.7ms)[0m  CREATE INDEX `index_lend_logs_on_book_id_and_user_id` ON `lend_logs` (`book_id`, `user_id`)
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140609044701')[0m
+Migrating to AddColumnToLendLog (20140830064806)
+  [1m[35m (85.6ms)[0m  ALTER TABLE `lend_logs` ADD `temporary` tinyint(1) DEFAULT 0
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140830064806')[0m
+Migrating to CreateDeviceIds (20141007052918)
+  [1m[35m (24.5ms)[0m  CREATE TABLE `device_ids` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `registration_id` varchar(255) NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (69.0ms)[0m  [1mALTER TABLE `device_ids` ADD CONSTRAINT `device_ids_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141007052918')
+Migrating to CreateNotificationLogs (20141009085614)
+  [1m[36m (30.1ms)[0m  [1mCREATE TABLE `notification_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL, `message` varchar(255) NOT NULL, `date` datetime NOT NULL, `is_notify` tinyint(1) NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (70.3ms)[0m  ALTER TABLE `notification_logs` ADD CONSTRAINT `notification_logs_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141009085614')[0m
+Migrating to CreateActionLogs (20141013065227)
+  [1m[35m (25.1ms)[0m  CREATE TABLE `action_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL, `group_id` int(11), `device` varchar(255) NOT NULL, `action` varchar(255) NOT NULL, `date` datetime NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (70.2ms)[0m  [1mALTER TABLE `action_logs` ADD CONSTRAINT `action_logs_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141013065227')
+Migrating to CreateTemporaryLendLogs (20141019072000)
+  [1m[36m (26.3ms)[0m  [1mCREATE TABLE `temporary_lend_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_code` varchar(255), `user_id` int(11) NOT NULL, `group_id` int(11) NOT NULL, `lend_date` datetime NOT NULL, `return_date` datetime, `status` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (72.4ms)[0m  ALTER TABLE `temporary_lend_logs` ADD CONSTRAINT `temporary_lend_logs_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)
+  [1m[36m (71.5ms)[0m  [1mALTER TABLE `temporary_lend_logs` ADD CONSTRAINT `temporary_lend_logs_group_id_fk` FOREIGN KEY (`group_id`) REFERENCES `groups`(id)[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141019072000')
+Migrating to AddLenderesToTemporaryLendLogs (20141021041525)
+  [1m[36m (85.3ms)[0m  [1mALTER TABLE `temporary_lend_logs` ADD `lenders` int(11)[0m
+  [1m[35m (4.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141021041525')
+Migrating to AddPossessorToTemporaryLendLogs (20141021041539)
+  [1m[36m (83.8ms)[0m  [1mALTER TABLE `temporary_lend_logs` ADD `possessors` int(11)[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141021041539')
+Migrating to AddBookcodeToLendLog (20141022004032)
+  [1m[36m (82.1ms)[0m  [1mALTER TABLE `lend_logs` ADD `book_code` varchar(255) NOT NULL[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141022004032')
+Migrating to CreateInvitationLogs (20141026171828)
+  [1m[36m (24.2ms)[0m  [1mCREATE TABLE `invitation_logs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `group_id` int(11) NOT NULL, `mail` varchar(255), `expire_at` datetime, `url_hash` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (65.6ms)[0m  ALTER TABLE `invitation_logs` ADD CONSTRAINT `invitation_logs_group_id_fk` FOREIGN KEY (`group_id`) REFERENCES `groups`(id)
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141026171828')[0m
+Migrating to CreateErrorReports (20141112042146)
+  [1m[35m (24.0ms)[0m  CREATE TABLE `error_reports` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `detail` varchar(2000), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141112042146')[0m
+Migrating to AddColumnToBookCatalog (20141128021518)
+  [1m[35m (66.0ms)[0m  ALTER TABLE `book_catalogs` ADD `image` varchar(255)
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141128021518')[0m
+Migrating to CreatePasswordResets (20141225065806)
+  [1m[35m (21.5ms)[0m  CREATE TABLE `password_resets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL, `url_hash` varchar(255) NOT NULL, `expire_at` datetime NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141225065806')[0m
+Migrating to ChangeColumnToBookCatalog (20150104214758)
+  [1m[35m (67.6ms)[0m  ALTER TABLE `book_catalogs` CHANGE `authors` `authors` varchar(100) DEFAULT NULL
+  [1m[36m (72.6ms)[0m  [1mALTER TABLE `book_catalogs` CHANGE `publisher` `publisher` varchar(40) DEFAULT NULL[0m
+  [1m[35m (67.8ms)[0m  ALTER TABLE `book_catalogs` CHANGE `publication_date` `publication_date` datetime DEFAULT NULL
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150104214758')[0m
+Migrating to AddGroupidToBookCatalog (20150128042320)
+  [1m[35m (65.3ms)[0m  ALTER TABLE `book_catalogs` ADD `group_id` int(11) NOT NULL
+  [1m[36m (67.9ms)[0m  [1mALTER TABLE `book_catalogs` CHANGE `book_code` `book_code` varchar(13) DEFAULT NULL[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150128042320')
+Migrating to ChangeColumnToUser (20150203041646)
+  [1m[36m (78.8ms)[0m  [1mALTER TABLE `users` CHANGE `login_id` `login_id` varchar(16) DEFAULT NULL[0m
+  [1m[35m (68.6ms)[0m  ALTER TABLE `users` CHANGE `mail` `mail` varchar(255) DEFAULT NULL
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150203041646')[0m
+Migrating to CreateRoundtables (20150529044746)
+  [1m[35m (24.1ms)[0m  CREATE TABLE `roundtables` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `group_id` int(11) NOT NULL, `title` varchar(128) NOT NULL, `keywords` varchar(256), `book_code` varchar(13), `startdatetime` datetime, `enddatetime` datetime, `place` varchar(40), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (45.1ms)[0m  [1mCREATE INDEX `index_roundtables_on_group_id` ON `roundtables` (`group_id`)[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150529044746')
+Migrating to CreateRoundtableFiles (20150529050119)
+  [1m[36m (24.4ms)[0m  [1mCREATE TABLE `roundtable_files` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL, `roundtable_id` int(11) NOT NULL, `book_code` varchar(13), `title` varchar(256), `keywords` varchar(256), `filename` varchar(256), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (35.6ms)[0m  CREATE INDEX `index_roundtable_files_on_user_id` ON `roundtable_files` (`user_id`)
+  [1m[36m (34.0ms)[0m  [1mCREATE INDEX `index_roundtable_files_on_roundtable_id` ON `roundtable_files` (`roundtable_id`)[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150529050119')
+Migrating to RemoveBookCodeFromRoundtableFiles (20150603024511)
+  [1m[36m (80.0ms)[0m  [1mALTER TABLE `roundtable_files` DROP `book_code`[0m
+  [1m[35m (4.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150603024511')
+Migrating to AddUploadtimeToRoundtableFiles (20150605033900)
+  [1m[36m (82.0ms)[0m  [1mALTER TABLE `roundtable_files` ADD `uploadtime` datetime NOT NULL[0m
+  [1m[35m (4.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150605033900')
+Migrating to CreateTableRoundtablePresenters (20151016042904)
+  [1m[36m (24.0ms)[0m  [1mCREATE TABLE `roundtable_presenters` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `roundtable_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (217.0ms)[0m  ALTER TABLE `roundtable_presenters` ADD CONSTRAINT `roundtable_presenters_roundtable_id_fk` FOREIGN KEY (`roundtable_id`) REFERENCES `roundtables`(id)
+  [1m[36m (84.2ms)[0m  [1mALTER TABLE `roundtable_presenters` ADD CONSTRAINT `roundtable_presenters_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)[0m
+  [1m[35m (50.8ms)[0m  CREATE INDEX `index_roundtable_presenters_on_roundtable_id_and_user_id` ON `roundtable_presenters` (`roundtable_id`, `user_id`)
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20151016042904')[0m
+  [1m[35m (0.5ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (5.3ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'action_logs'
+ [0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `action_logs`
+  [1m[36m (0.4ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'book_catalogs'
+ [0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `book_catalogs`
+  [1m[36m (0.4ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'books'
+ [0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `books`
+  [1m[36m (0.4ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'device_ids'
+ [0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `device_ids`
+  [1m[36m (0.4ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'error_reports'
+ [0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `error_reports`
+  [1m[36m (0.5ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'groups'
+ [0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.5ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'invitation_logs'
+ [0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `invitation_logs`
+  [1m[36m (0.4ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'lend_logs'
+ [0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `lend_logs`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'managers'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `managers`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'members'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `members`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'notification_logs'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `notification_logs`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'password_resets'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `password_resets`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'roundtable_files'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `roundtable_files`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'roundtable_presenters'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `roundtable_presenters`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'roundtables'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `roundtables`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'shelves'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `shelves`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'temporary_lend_logs'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `temporary_lend_logs`
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'bms_dev'
+ AND fk.table_name = 'users'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" at 2015-10-28 17:25:31 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by SessionController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT `managers`.* FROM `managers` WHERE `managers`.`user_id` IS NULL AND `managers`.`group_id` IS NULL LIMIT 1
+  Rendered shared/_redirect_not_login.html.erb (86.1ms)
+  Rendered session/index.html.erb within layouts/application (92.3ms)
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/7d7f67945be69eebb1b853b9e9fa35e0e8e7ecb6/application.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/cb59b23c80ca8594a9bc43f2d9c756085c042828/_bootstrap.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_variables.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_mixins.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_hide-text.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_opacity.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_image.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_labels.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_reset-filter.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_resize.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_responsive-visibility.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_size.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_tab-focus.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_text-emphasis.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_text-overflow.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_vendor-prefixes.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_alerts.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_buttons.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_panels.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_pagination.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_list-group.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_nav-divider.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_forms.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_progress-bar.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_table-row.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_background-variant.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_border-radius.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_gradients.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_clearfix.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_center-block.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_nav-vertical-align.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_grid-framework.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/adba7ad4ccfe929b8f37c1d910a0e1a7ec90e7f8/_grid.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_normalize.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_print.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_glyphicons.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_scaffolding.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_type.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_code.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_grid.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_tables.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_forms.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_buttons.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_component-animations.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_dropdowns.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_button-groups.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_input-groups.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_navs.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_navbar.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_breadcrumbs.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_pagination.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_pager.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_labels.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_badges.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_jumbotron.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_thumbnails.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_alerts.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_progress-bars.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_media.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_list-group.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_panels.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_responsive-embed.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_wells.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_close.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_modals.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_tooltip.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_popovers.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_carousel.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_utilities.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Warning. Error encountered while saving cache /home/sit-user-15/bircle_server3/tmp/cache/sass/1c76ac78e03fb19cbdd0928969b14cfd0870243f/_responsive-utilities.scssc: can't dump anonymous class #<Class:0x007f88fdc1eef8>
+
+Compiled application.css  (3078ms)  (pid 60661)
+Compiled jquery.js  (3ms)  (pid 60661)
+Compiled jquery_ujs.js  (0ms)  (pid 60661)
+Compiled bootstrap.js  (0ms)  (pid 60661)
+Compiled book.js  (61ms)  (pid 60661)
+Compiled book_catalog.js  (1ms)  (pid 60661)
+Compiled bootstrapSlideInMenu-1.0.0.min.js  (0ms)  (pid 60661)
+Compiled functions.js  (0ms)  (pid 60661)
+Compiled gcm.js  (1ms)  (pid 60661)
+Compiled group.js  (1ms)  (pid 60661)
+Compiled lend_log.js  (0ms)  (pid 60661)
+Compiled manager.js  (0ms)  (pid 60661)
+Compiled member.js  (1ms)  (pid 60661)
+Compiled roundtable.js  (0ms)  (pid 60661)
+Compiled roundtable_file.js  (1ms)  (pid 60661)
+Compiled session.js  (0ms)  (pid 60661)
+Compiled shelf.js  (0ms)  (pid 60661)
+Compiled user.js  (1ms)  (pid 60661)
+Compiled application.js  (868ms)  (pid 60661)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 8163.0ms (Views: 8090.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" at 2015-10-28 17:25:39 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by SessionController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT `managers`.* FROM `managers` WHERE `managers`.`user_id` IS NULL AND `managers`.`group_id` IS NULL LIMIT 1
+  Rendered shared/_redirect_not_login.html.erb (2.9ms)
+  Rendered session/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 28.3ms (Views: 11.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /application.css - 200 OK (18ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bootstrap.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/book_catalog.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /book_catalog.js - 200 OK (1ms)
+
+
+Started GET "/assets/book.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /book.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrapSlideInMenu-1.0.0.min.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bootstrapSlideInMenu-1.0.0.min.js - 200 OK (1ms)
+
+
+Started GET "/assets/functions.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /functions.js - 200 OK (1ms)
+
+
+Started GET "/assets/gcm.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /gcm.js - 200 OK (1ms)
+
+
+Started GET "/assets/group.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /group.js - 200 OK (2ms)
+
+
+Started GET "/assets/lend_log.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /lend_log.js - 200 OK (1ms)
+
+
+Started GET "/assets/manager.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /manager.js - 200 OK (1ms)
+
+
+Started GET "/assets/member.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /member.js - 200 OK (2ms)
+
+
+Started GET "/assets/roundtable.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /roundtable.js - 200 OK (1ms)
+
+
+Started GET "/assets/roundtable_file.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /roundtable_file.js - 200 OK (2ms)
+
+
+Started GET "/assets/session.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /session.js - 200 OK (2ms)
+
+
+Started GET "/assets/shelf.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /shelf.js - 200 OK (1ms)
+
+
+Started GET "/assets/user.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /user.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /application.js - 200 OK (14ms)
+
+
+Started GET "/assets/bircle.gif" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bircle.gif - 200 OK (91ms)
+
+
+Started GET "/login" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by SessionController#login as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered shared/_redirect_login.html.erb (1.7ms)
+  Rendered session/login.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 27.8ms (Views: 13.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bircle.gif" at 2015-10-28 17:25:40 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bircle.gif - 304 Not Modified (0ms)
+
+
+Started GET "/login" at 2015-10-28 17:25:55 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by SessionController#login as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  Rendered shared/_redirect_login.html.erb (1.7ms)
+  Rendered session/login.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 30.5ms (Views: 13.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bircle.gif" at 2015-10-28 17:25:56 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bircle.gif - 304 Not Modified (0ms)
+
+
+Started GET "/" at 2015-10-28 17:26:07 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by SessionController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT `managers`.* FROM `managers` WHERE `managers`.`user_id` IS NULL AND `managers`.`group_id` IS NULL LIMIT 1
+  Rendered shared/_redirect_not_login.html.erb (5.7ms)
+  Rendered session/index.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 36.3ms (Views: 16.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bircle.gif" at 2015-10-28 17:26:07 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bircle.gif - 304 Not Modified (0ms)
+
+
+Started GET "/login" at 2015-10-28 17:26:07 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by SessionController#login as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered shared/_redirect_login.html.erb (1.5ms)
+  Rendered session/login.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 28.6ms (Views: 11.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bircle.gif" at 2015-10-28 17:26:07 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bircle.gif - 304 Not Modified (0ms)
+
+
+Started GET "/" at 2015-10-28 17:26:32 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by SessionController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT `managers`.* FROM `managers` WHERE `managers`.`user_id` IS NULL AND `managers`.`group_id` IS NULL LIMIT 1[0m
+  Rendered shared/_redirect_not_login.html.erb (2.8ms)
+  Rendered session/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 31.9ms (Views: 12.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bircle.gif" at 2015-10-28 17:26:32 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bircle.gif - 304 Not Modified (0ms)
+
+
+Started GET "/login" at 2015-10-28 17:26:32 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by SessionController#login as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  Rendered shared/_redirect_login.html.erb (1.5ms)
+  Rendered session/login.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 29.1ms (Views: 12.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bircle.gif" at 2015-10-28 17:26:33 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Served asset /bircle.gif - 304 Not Modified (0ms)
+
+
+Started GET "/signup" at 2015-10-28 17:26:38 +0900 by Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36
+Processing by UserController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered shared/_redirect_login.html.erb (2.9ms)
+  Rendered user/new.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 57.2ms (Views: 32.6ms | ActiveRecord: 0.5ms)
