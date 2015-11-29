@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="country_codes">
+    <item>-</item>
+    <item>AR</item>
+    <item>AU</item>
+    <item>BR</item>
+    <item>BG</item>
+    <item>CA</item>
+    <item>CH</item>
+    <item>CN</item>
+    <item>CZ</item>
+    <item>DE</item>
+    <item>DK</item>
+    <item>ES</item>
+    <item>FI</item>
+    <item>FR</item>
+    <item>GB</item>
+    <item>GR</item>
+    <item>HU</item>
+    <item>ID</item>
+    <item>IT</item>
+    <item>JP</item>
+    <item>KR</item>
+    <item>NL</item>
+    <item>PL</item>
+    <item>PT</item>
+    <item>RO</item>    
+    <item>RU</item>
+    <item>SE</item>
+    <item>SK</item>
+    <item>SI</item>
+    <item>TR</item>
+    <item>TW</item>
+    <item>US</item>
+  </string-array>
+    <string-array name="preferences_front_light_options">
+    <item>@string/preferences_front_light_on</item>
+    <item>@string/preferences_front_light_auto</item>
+    <item>@string/preferences_front_light_off</item>
+  </string-array>
+    <string-array name="preferences_front_light_values">
+    <item>ON</item>
+    <item>AUTO</item>
+    <item>OFF</item>
+  </string-array>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_colors.xml -->
+    <eat-comment/>
+    <color name="common_action_bar_splitter">#d2d2d2</color>
+    <color name="common_signin_btn_dark_text_default">@android:color/white</color>
+    <color name="common_signin_btn_dark_text_disabled">#FFAAAAAA</color>
+    <color name="common_signin_btn_dark_text_focused">@android:color/white</color>
+    <color name="common_signin_btn_dark_text_pressed">@android:color/white</color>
+    <color name="common_signin_btn_default_background">#FFDD4B39</color>
+    <color name="common_signin_btn_light_text_default">#FF737373</color>
+    <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
+    <color name="common_signin_btn_light_text_focused">#FF737373</color>
+    <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="false_color">#66ffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="true_color">#11000099</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/res/values/wallet_colors.xml -->
+    <eat-comment/>
+    <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="wallet_bright_foreground_holo_dark">#fff3f3f3</color>
+    <color name="wallet_bright_foreground_holo_light">#ff000000</color>
+    <color name="wallet_dim_foreground_disabled_holo_dark">#80bebebe</color>
+    <color name="wallet_dim_foreground_holo_dark">#bebebe</color>
+    <color name="wallet_dim_foreground_inverse_disabled_holo_dark">#80323232</color>
+    <color name="wallet_dim_foreground_inverse_holo_dark">#323232</color>
+    <color name="wallet_highlighted_text_holo_dark">#6633b5e5</color>
+    <color name="wallet_highlighted_text_holo_light">#6633b5e5</color>
+    <color name="wallet_hint_foreground_holo_dark">#808080</color>
+    <color name="wallet_hint_foreground_holo_light">#808080</color>
+    <color name="wallet_holo_blue_light">#ff33b5e5</color>
+    <color name="wallet_link_text_light">#0000ee</color>
+    <declare-styleable name="AdsAttrs"><attr format="string" name="adSize"/><attr format="string" name="adSizes"/><attr format="string" name="adUnitId"/></declare-styleable>
+    <declare-styleable name="CustomWalletTheme"><attr format="enum" name="windowTransitionStyle"><enum name="slide" value="1"/><enum name="none" value="2"/></attr></declare-styleable>
+    <declare-styleable name="LoadingImageView"><attr format="enum" name="imageAspectRatioAdjust"><enum name="none" value="0"/><enum name="adjust_width" value="1"/><enum name="adjust_height" value="2"/></attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
+    <declare-styleable name="MapAttrs"><attr format="enum" name="mapType"><enum name="none" value="0"/><enum name="normal" value="1"/><enum name="satellite" value="2"/><enum name="terrain" value="3"/><enum name="hybrid" value="4"/></attr><attr format="float" name="cameraBearing"/><attr format="float" name="cameraTargetLat"/><attr format="float" name="cameraTargetLng"/><attr format="float" name="cameraTilt"/><attr format="float" name="cameraZoom"/><attr format="boolean" name="liteMode"/><attr format="boolean" name="uiCompass"/><attr format="boolean" name="uiRotateGestures"/><attr format="boolean" name="uiScrollGestures"/><attr format="boolean" name="uiTiltGestures"/><attr format="boolean" name="uiZoomControls"/><attr format="boolean" name="uiZoomGestures"/><attr format="boolean" name="useViewLifecycle"/><attr format="boolean" name="zOrderOnTop"/><attr format="boolean" name="uiMapToolbar"/></declare-styleable>
+    <declare-styleable name="WalletFragmentOptions"><attr format="enum" name="appTheme"><enum name="holo_dark" value="0"/><enum name="holo_light" value="1"/></attr><attr format="enum" name="environment"><enum name="production" value="1"/><enum name="sandbox" value="0"/><enum name="strict_sandbox" value="2"/></attr><attr format="reference" name="fragmentStyle"/><attr format="enum" name="fragmentMode"><enum name="buyButton" value="1"/><enum name="selectionDetails" value="2"/></attr></declare-styleable>
+    <declare-styleable name="WalletFragmentStyle"><attr format="dimension" name="buyButtonHeight"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="dimension" name="buyButtonWidth"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="enum" name="buyButtonText"><enum name="buy_with_google" value="1"/><enum name="buy_now" value="2"/><enum name="book_now" value="3"/><enum name="donate_with_google" value="4"/></attr><attr format="enum" name="buyButtonAppearance"><enum name="classic" value="1"/><enum name="grayscale" value="2"/><enum name="monochrome" value="3"/></attr><attr format="reference" name="maskedWalletDetailsTextAppearance"/><attr format="reference" name="maskedWalletDetailsHeaderTextAppearance"/><attr format="reference|color" name="maskedWalletDetailsBackground"/><attr format="reference" name="maskedWalletDetailsButtonTextAppearance"/><attr format="reference|color" name="maskedWalletDetailsButtonBackground"/><attr format="color" name="maskedWalletDetailsLogoTextColor"/><attr format="enum" name="maskedWalletDetailsLogoImageType"><enum name="classic" value="1"/><enum name="monochrome" value="2"/></attr></declare-styleable>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="half_padding">4dip</dimen>
+    <dimen name="standard_padding">8dip</dimen>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="decode" type="id"/>
+    <item name="decode_failed" type="id"/>
+    <item name="decode_succeeded" type="id"/>
+    <item name="launch_product_query" type="id"/>
+    <item name="quit" type="id"/>
+    <item name="restart_preview" type="id"/>
+    <item name="return_scan_result" type="id"/>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/version.xml -->
+    <eat-comment/>
+    <integer name="google_play_services_version">7095000</integer>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/res/values/admob_strings.xml -->
+    <eat-comment/>
+    <string name="accept">Accept</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="acra_dialog_comment_prompt">発生状況を教えてください。</string>
+    <string name="acra_dialog_text">予期せぬエラーが発生しました。アプリを終了します。\nクラッシュレポートを送信しますか?</string>
+    <string name="acra_dialog_title">クラッシュレポート</string>
+    <string name="apache_license">Apache License 2.0</string>
+    <string name="app_name">Bircle</string>
+    <string name="app_picker_name">アプリケーション</string>
+    <string name="bookmark_picker_name">ブックマーク</string>
+    <string name="button_add_calendar">予定を追加</string>
+    <string name="button_add_contact">連絡先を追加</string>
+    <string name="button_book_search">書籍を検索</string>
+    <string name="button_cancel">キャンセル</string>
+    <string name="button_custom_product_search">カスタムサーチ</string>
+    <string name="button_dial">電話をかける</string>
+    <string name="button_email">メールの送信</string>
+    <string name="button_get_directions">経路を検索</string>
+    <string name="button_mms">MMSの送信</string>
+    <string name="button_ok">OK</string>
+    <string name="button_open_browser">ブラウザで表示</string>
+    <string name="button_product_search">商品検索</string>
+    <string name="button_search_book_contents">書籍の中身を検索</string>
+    <string name="button_share_app">アプリを共有</string>
+    <string name="button_share_bookmark">ブックマーク</string>
+    <string name="button_share_by_email">メールで共有</string>
+    <string name="button_share_by_sms">SMSで共有</string>
+    <string name="button_share_clipboard">クリップボードを共有</string>
+    <string name="button_share_contact">連絡先を共有</string>
+    <string name="button_show_map">地図を表示</string>
+    <string name="button_sms">SMSの送信</string>
+    <string name="button_web_search">インターネット検索</string>
+    <string name="button_wifi">ネットワークに接続</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_strings.xml -->
+    <eat-comment/>
+    <string name="common_android_wear_notification_needs_update_text">An application requires an update to the Android Wear app.</string>
+    <string name="common_android_wear_update_text">This app won\'t run unless you update the Android Wear app.</string>
+    <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable Google Play services</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">This app won\'t work unless you enable Google Play services.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string name="common_google_play_services_error_notification_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Get Google Play services</string>
+    <string msgid="2122112764540849864" name="common_google_play_services_install_text_phone">This app won\'t run without Google Play services, which are missing from your phone.</string>
+    <string msgid="7351599665250191022" name="common_google_play_services_install_text_tablet">This app won\'t run without Google Play services, which are missing from your tablet.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_invalid_account_text">The specified account does not exist on this device. Please choose a different account.</string>
+    <string name="common_google_play_services_invalid_account_title">Invalid Account</string>
+    <string name="common_google_play_services_needs_enabling_title">An application requires Google Play services to be enabled.</string>
+    <string name="common_google_play_services_network_error_text">A data connection is required to connect to Google Play services.</string>
+    <string name="common_google_play_services_network_error_title">Network Error</string>
+    <string name="common_google_play_services_notification_needs_installation_title">An application requires installation of Google Play services.</string>
+    <string name="common_google_play_services_notification_needs_update_title">An application requires an update for Google Play services.</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_sign_in_failed_text">Error signing in the specified account. Please choose a different account.</string>
+    <string name="common_google_play_services_sign_in_failed_title">Sign in failed</string>
+    <string name="common_google_play_services_unknown_issue">Unknown issue with Google Play services.</string>
+    <string name="common_google_play_services_unsupported_text">Google Play services, which some of your applications rely on, is not supported by your device. Please contact the manufacturer for assistance.</string>
+    <string name="common_google_play_services_unsupported_title">Google Play services</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">This app won\'t run unless you update Google Play services.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="commono_google_play_services_api_unavailable_text">This app requires one or more Google Play services that are not currently
+available. Please contact the developer for assistance.</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="contents_contact">連絡先</string>
+    <string name="contents_email">メールアドレス</string>
+    <string name="contents_location">位置情報</string>
+    <string name="contents_phone">電話番号</string>
+    <string name="contents_sms">SMSアドレス</string>
+    <string name="contents_text">テキストデータ</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/res/values/admob_strings.xml -->
+    <eat-comment/>
+    <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
+    <string name="create_calendar_title">Create calendar event</string>
+    <string name="decline">Decline</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="history_clear_one_history_text">削除</string>
+    <string name="history_clear_text">履歴の削除</string>
+    <string name="history_email_title">QRコードスキャナーの履歴</string>
+    <string name="history_empty">履歴なし</string>
+    <string name="history_empty_detail">スキャン履歴がありません</string>
+    <string name="history_send">履歴を送信</string>
+    <string name="history_title">履歴</string>
+    <string name="menu_encode_mecard">MECARDを使用</string>
+    <string name="menu_encode_vcard">vCardを使用</string>
+    <string name="menu_group_select">グループ選択</string>
+    <string name="menu_help">ヘルプ</string>
+    <string name="menu_history">履歴</string>
+    <string name="menu_logout">ログアウト</string>
+    <string name="menu_open_source_license">オープンソースライセンス</string>
+    <string name="menu_registration">モードの切替</string>
+    <string name="menu_settings">設定</string>
+    <string name="menu_share">共有</string>
+    <string name="menu_web_view">図書一覧などを閲覧する</string>
+    <string name="msg_bulk_mode_scanned">連続スキャン:スキャン結果を保存しました</string>
+    <string name="msg_camera_framework_bug">Androidのカメラに問題が発生しました。デバイスを再起動する必要があります。</string>
+    <string name="msg_default_format">フォーマット</string>
+    <string name="msg_default_meta">メタデータ</string>
+    <string name="msg_default_mms_subject">こんにちは</string>
+    <string name="msg_default_status1">借りたい or 返したい図書のISBNコードをこの画面に写し, スキャンしてください.</string>
+    <string name="msg_default_status2">登録したい図書のISBNコードをスキャンし, 次に本棚のQRコードを読み取ってください.</string>
+    <string name="msg_default_time">時間</string>
+    <string name="msg_default_type">タイプ</string>
+    <string name="msg_encode_contents_failed">このデータからQRコードを作成できませんでした</string>
+    <string name="msg_google_books">Google</string>
+    <string name="msg_google_product">Google</string>
+    <string name="msg_intent_failed">指定されたアプリケーションを起動できませんでした。QRコードの内容が無効である可能性があります。</string>
+    <string name="msg_redirect">リダイレクト</string>
+    <string name="msg_sbc_book_not_searchable">この書籍は検索できません</string>
+    <string name="msg_sbc_failed">検索中に問題が発生しました</string>
+    <string name="msg_sbc_no_page_returned">検索結果はありません</string>
+    <string name="msg_sbc_page">ページ</string>
+    <string name="msg_sbc_results">結果</string>
+    <string name="msg_sbc_searching_book">書籍を検索中</string>
+    <string name="msg_sbc_snippet_unavailable">要約文はありません</string>
+    <string name="msg_share_explanation">画面にQRコードを表示させて別の端末でスキャンすれば、データを共有することができます。</string>
+    <string name="msg_share_text">またはテキストを入力してください</string>
+    <string name="msg_sure">よろしいですか？</string>
+    <string name="msg_unmount_usb">SDカードにアクセスできません</string>
+    <string name="preferences_actions_title">スキャン時の動作</string>
+    <string name="preferences_auto_focus_title">ｵｰﾄﾌｫｰｶｽを使用</string>
+    <string name="preferences_bulk_mode_summary">QRコードを連続スキャンして保存します</string>
+    <string name="preferences_bulk_mode_title">連続スキャンモード</string>
+    <string name="preferences_copy_to_clipboard_title">ｸﾘｯﾌﾟﾎﾞｰﾄﾞにｺﾋﾟｰ</string>
+    <string formatted="false" name="preferences_custom_product_search_summary">引数：％s=コンテンツ、％f=フォーマット、％t=タイプ</string>
+    <string name="preferences_custom_product_search_title">カスタムサーチ URL</string>
+    <string name="preferences_decode_1D_title">1次元バーコード</string>
+    <string name="preferences_decode_Data_Matrix_title">データマトリクスコード</string>
+    <string name="preferences_decode_QR_title">QRコード</string>
+    <string name="preferences_device_bug_workarounds_title">不具合対策</string>
+    <string name="preferences_disable_continuous_focus_summary">標準フォーカスモードのみ使用します</string>
+    <string name="preferences_disable_continuous_focus_title">追従フォーカスしない</string>
+    <string name="preferences_disable_exposure_title">露出しない</string>
+    <string name="preferences_front_light_auto">自動</string>
+    <string name="preferences_front_light_off">ライトOFF</string>
+    <string name="preferences_front_light_on">ライトON</string>
+    <string name="preferences_front_light_summary">スキャン時のライトを制御します</string>
+    <string name="preferences_front_light_title">ライトの制御</string>
+    <string name="preferences_general_title">一般設定</string>
+    <string name="preferences_invert_scan_summary">黒地に白のバーコードをスキャン。一部のデバイスでは使用できません。</string>
+    <string name="preferences_invert_scan_title">スキャンを反転</string>
+    <string name="preferences_name">設定</string>
+    <string name="preferences_play_beep_title">通知音</string>
+    <string name="preferences_remember_duplicates_summary">同じ内容でも重複して履歴に記録します</string>
+    <string name="preferences_remember_duplicates_title">重複するスキャン結果の記録</string>
+    <string name="preferences_result_title">検索結果の設定</string>
+    <string name="preferences_scanning_title">QRコードスキャン時</string>
+    <string name="preferences_search_country">検索国コード</string>
+    <string name="preferences_supplemental_summary">QRコード内容の詳細情報を取得します</string>
+    <string name="preferences_supplemental_title">詳細情報を取得</string>
+    <string name="preferences_try_bsplus">QRコード+を試す</string>
+    <string name="preferences_try_bsplus_summary">新機能と強化されたインターフェース</string>
+    <string name="preferences_vibrate_title">バイブレーション</string>
+    <string name="result_address_book">連絡先がヒットしました</string>
+    <string name="result_calendar">カレンダーの予定がヒットしました</string>
+    <string name="result_email_address">メールアドレスがヒットしました</string>
+    <string name="result_geo">地理座標がヒットしました</string>
+    <string name="result_isbn">書籍がヒットしました</string>
+    <string name="result_product">商品がヒットしました</string>
+    <string name="result_sms">SMS 連絡先がヒットしました</string>
+    <string name="result_tel">電話番号がヒットしました</string>
+    <string name="result_text">テキストデータがヒットしました</string>
+    <string name="result_uri">URL がヒットしました</string>
+    <string name="result_wifi">ネットワーク設定がヒットしました</string>
+    <string name="sbc_name">Googleブックス</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/res/values/admob_strings.xml -->
+    <eat-comment/>
+    <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
+    <string name="store_picture_title">Save image</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/res/values/wallet_strings.xml -->
+    <eat-comment/>
+    <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="wifi_changing_network">ネットワークへ接続しています…</string>
+    <string name="wifi_ssid_label">ネットワーク名</string>
+    <string name="wifi_type_label">タイプ</string>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/themes.xml -->
+    <eat-comment/>
+    <style name="CaptureTheme" parent="@android:style/Theme.Holo">
+    <item name="android:windowFullscreen">true</item>
+    <!-- <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowActionBarOverlay">true</item>
+    <item name="android:windowActionModeOverlay">true</item> -->
+    <item name="android:actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
+  </style>
+    <style name="MyActionButtonOverflow" parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
+     <item name="android:src">@drawable/menu_overflow</item>
+  </style>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="ResultButton" parent="@android:style/Widget.Holo.Button.Borderless.Small">
+    <item name="android:layout_width">0dip</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_weight">1</item>
+  </style>
+    <style name="ShareButton" parent="@android:style/Widget.Holo.Button.Borderless.Small">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/res/values/admob_iap_style.xml -->
+    <eat-comment/>
+    <style name="Theme.IAPTheme" parent="android:Theme">
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowIsFloating">true</item>
+    <item name="android:backgroundDimEnabled">false</item>
+  </style>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="Translucent" parent="android:Theme.Holo.Light">
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+  </style>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/res/values/wallet_styles.xml -->
+    <eat-comment/>
+    <style name="WalletFragmentDefaultButtonTextAppearance">
+        <item name="android:textColor">@color/wallet_primary_text_holo_light</item>
+        <item name="android:textColorHighlight">@color/wallet_highlighted_text_holo_light</item>
+        <item name="android:textColorHint">@color/wallet_hint_foreground_holo_light</item>
+        <item name="android:textColorLink">@color/wallet_link_text_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="WalletFragmentDefaultDetailsHeaderTextAppearance" parent="WalletFragmentDefaultDetailsTextAppearance">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="WalletFragmentDefaultDetailsTextAppearance">
+        <item name="android:textColor">@color/wallet_secondary_text_holo_dark</item>
+        <item name="android:textColorHighlight">@color/wallet_highlighted_text_holo_dark</item>
+        <item name="android:textColorHint">@color/wallet_hint_foreground_holo_dark</item>
+        <item name="android:textColorLink">@color/wallet_holo_blue_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="WalletFragmentDefaultStyle">
+        <item name="buyButtonHeight">48dp</item>
+        <item name="buyButtonWidth">match_parent</item>
+        <item name="buyButtonText">buy_with_google</item>
+        <item name="buyButtonAppearance">classic</item>
+        <item name="maskedWalletDetailsTextAppearance">@style/WalletFragmentDefaultDetailsTextAppearance</item>
+        <item name="maskedWalletDetailsHeaderTextAppearance">@style/WalletFragmentDefaultDetailsHeaderTextAppearance</item>
+        <item name="maskedWalletDetailsBackground">@color/wallet_bright_foreground_holo_light</item>
+        <item name="maskedWalletDetailsButtonBackground">@android:drawable/btn_default</item>
+        <item name="maskedWalletDetailsButtonTextAppearance">@style/WalletFragmentDefaultButtonTextAppearance</item>
+        <item name="maskedWalletDetailsLogoTextColor">@color/wallet_bright_foreground_holo_dark</item>
+        <item name="maskedWalletDetailsLogoImageType">classic</item>
+    </style>
+    <!-- From: file:/C:/Users/kaname/Desktop/Bircle関連/Bircle_04241/app/src/main/res/values/themes.xml -->
+    <eat-comment/>
+    <style name="actionbar_style" parent="@android:style/Widget.Holo.Light.ActionBar">
+    <item name="android:background">#e67e22</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+</resources>
