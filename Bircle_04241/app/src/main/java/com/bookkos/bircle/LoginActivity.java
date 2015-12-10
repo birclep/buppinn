@@ -87,7 +87,7 @@ public class LoginActivity extends Activity implements LoginAsyncTaskListener {
 		// ログインしているかを判定する
 		// ログインしている場合
 		if(loginCheck()) {
-			Intent intent = new Intent(_context,BookAndEquipment.class);
+			Intent intent = new Intent(_context,EquipmentMana.class);
 			startActivity(intent);
 			finish();
 		}
@@ -245,7 +245,7 @@ public class LoginActivity extends Activity implements LoginAsyncTaskListener {
         HttpConnectRegistOrUnregistDevice httpConnectRegistOrUnregistDevice = new HttpConnectRegistOrUnregistDevice(getApplicationContext(), regId, user_id_str, true);
         httpConnectRegistOrUnregistDevice.execute();
 		
-		Intent intent = new Intent(_context,BookAndEquipment.class);
+		Intent intent = new Intent(_context,EquipmentMana.class);
 		intent.putExtra("regId", regId);
 		startActivity(intent);
 		finish();

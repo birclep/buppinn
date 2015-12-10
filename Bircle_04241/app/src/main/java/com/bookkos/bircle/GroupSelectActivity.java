@@ -42,7 +42,7 @@ public class GroupSelectActivity extends Activity implements AsyncTaskListener {
 	private Activity _activity;
 	private Context _context;
 	
-	private String apiUrl = "https://bms-dev.herokuapp.com/group/get_groups?";
+	private String apiUrl = "http://130.158.80.42:80/group/get_groups?";
 	
 	private int userId;
 	private int groupId;

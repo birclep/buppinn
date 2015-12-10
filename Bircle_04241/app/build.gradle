@@ -30,4 +30,5 @@ dependencies {
     compile files('libs/iSpeech-SDK-1.3.9.jar')
     compile files('libs/javase-3.0.1.jar')
     compile files('libs/gcm.jar')
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
 }

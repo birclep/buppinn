@@ -72,7 +72,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 	}
 	
 	private static void generateNotification(Context context, String message) {
-        int icon = R.drawable.ic_launcher_web;
+        int icon = R.drawable.rameicon;
         
         long when = System.currentTimeMillis();
         NotificationManager notificationManager = (NotificationManager)

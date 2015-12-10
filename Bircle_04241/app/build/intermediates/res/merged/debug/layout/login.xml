@@ -12,7 +12,7 @@
         android:layout_alignLeft="@+id/loginIdText"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/loginIdText"
-        android:src="@drawable/ic_launcher_web" />
+        android:src="@drawable/rameicon" />
 
     <EditText
         android:id="@+id/loginIdText"

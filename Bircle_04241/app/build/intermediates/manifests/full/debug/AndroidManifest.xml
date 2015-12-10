@@ -87,9 +87,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher_web"
+        android:icon="@drawable/rameicon"
         android:label="@string/app_name"
-        android:logo="@drawable/ic_launcher_web" >
+        android:logo="@drawable/rameicon" >
         <activity
             android:name="com.bookkos.bircle.LoginActivity"
             android:label="@string/app_name" >
@@ -343,6 +343,10 @@
             android:screenOrientation="sensorPortrait" >
         </activity>
         <activity android:name="com.bookkos.bircle.EquipmentWebViewActivity" >
+        </activity>
+        <activity android:name="com.bookkos.bircle.ContinuosShooting" >
+        </activity>
+        <activity android:name="com.bookkos.bircle.GroupSelectActivity2" >
         </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity

@@ -54,7 +54,7 @@ public class EquipmentWebViewActivity extends Activity {
         _context = getApplicationContext();
         _activity = this;
         actionBar = getActionBar();
-        actionBar.setTitle("Bircle-Equipment(Web)");
+        actionBar.setTitle("R.a.M.E-Equipment(Web)");
 
         loginId = "";
         secret = "";
@@ -141,7 +141,7 @@ public class EquipmentWebViewActivity extends Activity {
             return true;
         }
         else {
-            Intent intent = new Intent(_context, CaptureActivity.class);
+            Intent intent = new Intent(_context,EquipmentMana.class);
             startActivity(intent);
             finish();
             return false;

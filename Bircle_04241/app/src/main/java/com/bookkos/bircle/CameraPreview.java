@@ -173,7 +173,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                                 params.put("GROUPID",groupId_str);
                                 Map<String, File> files = new HashMap<String, File>();
                                 files.put(name+".jpg", imageFile);
-                                upload.post("http://130.158.80.42:80/picupload/oneupload", params, files);
+                                upload.post("http://130.158.80.42:80/equipment/oneupload", params, files);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -188,7 +188,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                                 }
                             };
                             Toast.makeText(context, "recogniting...",Toast.LENGTH_LONG).show();
-                            timer.schedule(tast,10000);
+                            timer.schedule(tast,1000);
                         }
                   //  }
 

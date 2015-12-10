@@ -76,7 +76,7 @@ public class EquipmentMana extends Activity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         switch (item.getItemId()) {
             case R.id.menu_group_select:
-                intent.setClassName(this, GroupSelectActivity.class.getName());
+                intent.setClassName(this, GroupSelectActivity2.class.getName());
                 startActivity(intent);
                 break;
             case R.id.menu_equipment_register:
@@ -85,6 +85,10 @@ public class EquipmentMana extends Activity {
                 break;
             case R.id.menu_equipment_list:
                 intent.setClassName(this,EquipmentListWebViewActivity.class.getName());
+                startActivity(intent);
+                break;
+            case R.id.menu_book:
+                intent.setClassName(this, CaptureActivity.class.getName());
                 startActivity(intent);
                 break;
             case R.id.menu_logout:

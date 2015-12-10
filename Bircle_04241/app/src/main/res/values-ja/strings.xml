@@ -18,7 +18,7 @@
   <string name="acra_dialog_title">クラッシュレポート</string>
   <string name="acra_dialog_text">予期せぬエラーが発生しました。アプリを終了します。\nクラッシュレポートを送信しますか?</string>
   <string name="acra_dialog_comment_prompt">発生状況を教えてください。</string>
-  <string name="app_name">Bircle</string>
+  <string name="app_name">R.a.M.E</string>
   <string name="app_picker_name">アプリケーション</string>
   <string name="bookmark_picker_name">ブックマーク</string>
   <string name="button_add_calendar">予定を追加</string>

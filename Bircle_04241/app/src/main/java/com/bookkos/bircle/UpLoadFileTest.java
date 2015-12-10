@@ -1,5 +1,7 @@
 package com.bookkos.bircle;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -97,26 +99,29 @@ public class UpLoadFileTest implements Runnable {
         outStream.flush();
         // 得到响应码
         int res = conn.getResponseCode();
-        InputStream in = conn.getInputStream();
-        InputStreamReader isReader = new InputStreamReader(in);
+        Log.v("dd", "h");
+//        InputStream in = conn.getInputStream();
+//        InputStreamReader isReader = new InputStreamReader(in);
+//
+//        BufferedReader bufReader = new BufferedReader(isReader);
+//
+//        String line = null;
+//        String data = "OK";
+//        while((line = bufReader.readLine())==null)
+//            data += line;
+//
+//        if (res == 200) {
+//            int ch;
+//            StringBuilder sb2 = new StringBuilder();
+//            while ((ch = in.read()) != -1) {
+//                sb2.append((char) ch);
+//            }
+//        }
+//        outStream.close();
+//        conn.disconnect();
+//     return  in.toString();
 
-        BufferedReader bufReader = new BufferedReader(isReader);
-
-        String line = null;
-        String data = "OK";
-        while((line = bufReader.readLine())==null)
-            data += line;
-
-        if (res == 200) {
-            int ch;
-            StringBuilder sb2 = new StringBuilder();
-            while ((ch = in.read()) != -1) {
-                sb2.append((char) ch);
-            }
-        }
-        outStream.close();
-        conn.disconnect();
-        return  in.toString();
+       return "";
     }
 
 }

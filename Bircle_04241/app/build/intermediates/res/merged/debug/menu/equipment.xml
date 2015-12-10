@@ -10,9 +10,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:showAsAction="withText"/>
+    <item android:id="@+id/menu_book"
+        android:title="図書管理"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:showAsAction="withText"/>
     <item android:id="@+id/menu_logout"
         android:title="@string/menu_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:showAsAction="withText"/>
+    <item android:id="@+id/menu_group_select"
+        android:title="@string/menu_group_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:showAsAction="withText|ifRoom"/>
 </menu><!-- From: file:/C:/downtown/Bircle_04241/app/src/main/res/menu/equipment.xml -->
