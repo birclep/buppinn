@@ -6,8 +6,8 @@ class CreateEquipment < ActiveRecord::Migration
 	  t.string :equipment_location
 	  t.datetime :equipment_record_date
 	  t.integer :equipment_recorder_id
+                    t.integer :state
 	  t.string :descr
-      t.timestamps
       t.timestamps
     end
 	add_index :equipment, :equipment_class_id

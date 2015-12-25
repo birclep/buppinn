@@ -63,6 +63,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         Log.d(name,name);
         */
       //  inputTitleDialog();
+        Toast.makeText(context,"touch to shoot",Toast.LENGTH_LONG).show();
         try {
             int openCameraType = Camera.CameraInfo.CAMERA_FACING_BACK;
             if (openCameraType <= Camera.getNumberOfCameras()) {
@@ -187,7 +188,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                                     context.startActivity(localIntent);
                                 }
                             };
-                            Toast.makeText(context, "recogniting...",Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "recognizing...",Toast.LENGTH_LONG).show();
                             timer.schedule(tast,1000);
                         }
                   //  }

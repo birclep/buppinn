@@ -1,6 +1,8 @@
 package com.bookkos.bircle;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
@@ -33,6 +36,7 @@ public class EquipmentRegisterActivity extends Activity {
     private String regId;
     private String groupName;
     private JSONArray mFormJArr;
+    private JSONArray mFormJArrCheck;
     NumberPicker numberpicker;
     public int registerNumber;
     public static final MediaType JSON
@@ -42,11 +46,21 @@ public class EquipmentRegisterActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String createmessage="please have a try of recognizing before registering";
+        showDialog(createmessage);
         super.onCreate(savedInstanceState);
-
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.activity_equipment_register);
         getUserData();
         activity=this;
+
+        LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
+
+        final TableLayout registerTable = (TableLayout)findViewById(R.id.register_table);
+        View rowView = inflater.inflate(R.layout.test, null);
+        rowView.setId(register_row_id_start + 0);
+        registerTable.addView(rowView);
+
         numberpicker=(NumberPicker)findViewById(R.id.numberPicker);
         numberpicker.setMinValue(1);
         numberpicker.setMaxValue(100);
@@ -62,15 +76,48 @@ public class EquipmentRegisterActivity extends Activity {
 
                 LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
 
-                final TableLayout registerTable = (TableLayout)findViewById(R.id.register_table);
+                final TableLayout registerTable = (TableLayout) findViewById(R.id.register_table);
                 registerTable.removeAllViews();
-                for(int i = 0; i < numberpicker.getValue(); i++){
+                for (int i = 0; i < numberpicker.getValue(); i++) {
                     View rowView = inflater.inflate(R.layout.test, null);
                     rowView.setId(register_row_id_start + i);
                     registerTable.addView(rowView);
                 }
             }
 
+        });
+        Button checkbutton=(Button)findViewById(R.id.CheckButton);
+        checkbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                EditText editText=(EditText)findViewById(R.id.Text_name);
+                String strname=editText.getText().toString();
+                JSONArray jarr = new JSONArray();
+                JSONObject jobj = new JSONObject();
+            try{
+                JSONObject jobj2 = new JSONObject();
+                jobj2.put("userid",userId);
+                jobj2.put("groupid",groupId);
+                jobj2.put("equipmentname", strname);
+                jarr.put(jobj2);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+                mFormJArrCheck = jarr;
+                try {
+                   String myresponse=post("http://130.158.80.42:80/check/equipmentcheck", mFormJArrCheck.toString());
+                    String flag=myresponse.substring(0,1);
+                    Log.v("TEST",flag);
+                    if(flag.equals("1"))
+                        showDialog("already registered");
+                    else
+                        showDialog("no such equipment");
+                   // finish();
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+            }
         });
         Button locationActivitySwitchButton=(Button)findViewById(R.id.button);
         locationActivitySwitchButton.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +201,18 @@ public class EquipmentRegisterActivity extends Activity {
         regId = settings.getString("reg_id", "");
         groupName = settings.getString("group_name", "");
 
+    }
+    private void showDialog(String mess)
+    {  //final Activity mActivity = (Activity)this.getContext();
+        new AlertDialog.Builder(this).setTitle("Message")
+                .setMessage(mess)
+                .setNegativeButton("确定",new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                    }
+                })
+                .show();
     }
 
 }

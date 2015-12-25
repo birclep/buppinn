@@ -31,6 +31,7 @@ public class RecognitionActivity extends Activity {
                 LinearLayout.LayoutParams.WRAP_CONTENT));
 
 
+
     }
 
 }

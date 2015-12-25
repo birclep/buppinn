@@ -51,7 +51,7 @@ public class EquipmentListWebViewActivity extends Activity {
         _context = getApplicationContext();
         _activity = this;
         actionBar = getActionBar();
-        actionBar.setTitle("R.a.M.E-Equipment(Web)");
+        actionBar.setTitle("SnapBorrow-Equipment(Web)");
 
         loginId = "";
         secret = "";

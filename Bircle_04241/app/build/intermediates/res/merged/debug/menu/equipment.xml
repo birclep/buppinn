@@ -24,5 +24,7 @@
         android:title="@string/menu_group_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:showAsAction="withText|ifRoom"/>
+        android:showAsAction="withText|ifRoom"
+        />
+
 </menu><!-- From: file:/C:/downtown/Bircle_04241/app/src/main/res/menu/equipment.xml -->

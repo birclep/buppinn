@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:17:1-346:12
+ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:17:1-348:12
 	package
 		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:18:5-33
 		INJECTED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml
@@ -290,7 +290,7 @@ ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:74:5-79:40
 	android:anyDensity
 		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:75:9-34
 application
-ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:81:5-344:19
+ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:81:5-346:19
 MERGED from [com.android.support:support-v4:22.2.0] C:\downtown\Bircle_04241\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services:8.1.0] C:\downtown\Bircle_04241\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\8.1.0\AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-ads:8.1.0] C:\downtown\Bircle_04241\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.1.0\AndroidManifest.xml:24:5-32:19
@@ -659,31 +659,33 @@ ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:328:9-329:2
 	android:name
 		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:328:19-48
 activity#com.bookkos.bircle.EquipmentRegisterActivity
-ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:330:9-331:20
+ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:330:9-333:20
+	android:windowSoftInputMode
+		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:331:20-75
 	android:name
 		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:330:19-60
 activity#com.bookkos.bircle.EquipmentListWebViewActivity
-ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:332:9-333:20
+ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:334:9-335:20
 	android:name
-		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:332:19-63
+		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:334:19-63
 activity#com.bookkos.bircle.RecognitionActivity
-ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:334:9-337:20
+ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:336:9-339:20
 	android:screenOrientation
-		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:336:13-55
+		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:338:13-55
 	android:name
-		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:335:13-48
+		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:337:13-48
 activity#com.bookkos.bircle.EquipmentWebViewActivity
-ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:338:9-339:20
-	android:name
-		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:338:19-59
-activity#com.bookkos.bircle.ContinuosShooting
 ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:340:9-341:20
 	android:name
-		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:340:19-52
-activity#com.bookkos.bircle.GroupSelectActivity2
+		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:340:19-59
+activity#com.bookkos.bircle.ContinuosShooting
 ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:342:9-343:20
 	android:name
-		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:342:19-55
+		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:342:19-52
+activity#com.bookkos.bircle.GroupSelectActivity2
+ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:344:9-345:20
+	android:name
+		ADDED from C:\downtown\Bircle_04241\app\src\main\AndroidManifest.xml:344:19-55
 activity#com.google.android.gms.ads.AdActivity
 ADDED from [com.google.android.gms:play-services-ads:8.1.0] C:\downtown\Bircle_04241\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.1.0\AndroidManifest.xml:26:9-29:64
 MERGED from [com.google.android.gms:play-services-ads:8.1.0] C:\downtown\Bircle_04241\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.1.0\AndroidManifest.xml:26:9-29:64

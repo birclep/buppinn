@@ -334,7 +334,9 @@
         </activity>
         <activity android:name="com.bookkos.bircle.EquipmentMana" >
         </activity>
-        <activity android:name="com.bookkos.bircle.EquipmentRegisterActivity" >
+        <activity
+            android:name="com.bookkos.bircle.EquipmentRegisterActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
         </activity>
         <activity android:name="com.bookkos.bircle.EquipmentListWebViewActivity" >
         </activity>

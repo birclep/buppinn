@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151111120451) do
+ActiveRecord::Schema.define(:version => 20151128090152) do
 
   create_table "action_logs", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20151111120451) do
     t.string   "descr"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "state"
   end
 
   add_index "equipment", ["equipment_class_id"], :name => "index_equipment_on_equipment_class_id"
@@ -92,6 +93,13 @@ ActiveRecord::Schema.define(:version => 20151111120451) do
 
   add_index "equipment_logs", ["equipment_id"], :name => "index_equipment_logs_on_equipment_id"
   add_index "equipment_logs", ["user_id"], :name => "index_equipment_logs_on_user_id"
+
+  create_table "equipment_test_tables", :force => true do |t|
+    t.string   "name"
+    t.integer  "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "error_reports", :force => true do |t|
     t.integer  "user_id"

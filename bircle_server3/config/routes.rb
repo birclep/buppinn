@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 BmsApp::Application.routes.draw do
 
-  resources :equipment
+ 
 
 
   # ユーザの削除完了画面
@@ -251,9 +251,23 @@ BmsApp::Application.routes.draw do
  post "roundtable/add_presenter" => 'roundtable#add_presenter'
  post "roundtable/delete_presenter" => 'roundtable#delete_presenter'
 
- match"picupload/oneupload"=>'picupload#oneupload'
+ match "equipment/oneupload"=>'equipment#oneupload'
+ match "picupload/oneupload"=>'picupload#oneupload'
 
+ post "/equipment/" => 'equipment#index_android'
+ get  "/equipment/rec_img" => 'equipment#rec_img'
+ match  "equipment/new" => 'equipment#new'
+ match  "equipment/edit" => 'equipment#edit'
+ put    "equipment/new" => 'equipment#updete'
+ match  "equipment/borrow" => 'equipment#borrow'
+ match  "equipment/show" => 'equipment#show'
+ match  "equipment/logs" => 'equipment#logs'
 
+#備品登録：備品情報
+match "equipmentregistration/getjson" =>'equipment_registration#getjson'
+#備品登録：学習画像
+match "equipmentregistration/getpictures" =>'equipment_registration#getpictures'
+match "check/equipmentcheck" =>'check#equipmentcheck'
   resources :book, :except => [:create]
   resources :group, :except => [:new, :index]
   resources :shelf
@@ -263,6 +277,7 @@ BmsApp::Application.routes.draw do
   resources :session, :except => [:destroy]
   resources :roundtable
   resources :roundtable_file
+  resources :equipment
 
  
   root :to => 'session#index'

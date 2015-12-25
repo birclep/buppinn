@@ -373,7 +373,7 @@
     <string name="acra_dialog_text">予期せぬエラーが発生しました。アプリを終了します。\nクラッシュレポートを送信しますか?</string>
     <string name="acra_dialog_title">クラッシュレポート</string>
     <string name="apache_license">Apache License 2.0</string>
-    <string name="app_name">R.a.M.E</string>
+    <string name="app_name">SnapBorrow</string>
     <string name="app_picker_name">アプリケーション</string>
     <!-- From: file:/C:/downtown/Bircle_04241/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values/auth_strings.xml -->
     <eat-comment/>

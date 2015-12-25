@@ -35,7 +35,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/Text_name"
         android:layout_alignTop="@+id/textView3"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_toRightOf="@+id/button"
+        android:layout_alignRight="@+id/numberPicker"
+        android:layout_alignEnd="@+id/numberPicker" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/numberPicker"
+
         android:layout_below="@+id/Text_name"
         android:layout_toRightOf="@+id/textView2"
         android:layout_toEndOf="@+id/textView2" />
@@ -125,6 +128,16 @@
         android:layout_below="@+id/numberPicker">
 
     </TableLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="check"
+        android:id="@+id/CheckButton"
+        android:layout_above="@+id/numberPicker"
+        android:layout_toRightOf="@+id/Text_name"
+        android:layout_toEndOf="@+id/Text_name" />
 
 </RelativeLayout>
 <!-- From: file:/C:/downtown/Bircle_04241/app/src/main/res/layout/activity_equipment_register.xml -->
